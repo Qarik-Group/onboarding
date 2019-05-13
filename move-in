@@ -17,7 +17,7 @@ brew install \
 
 export dmg="Firefox 66.0.5.dmg"
 curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
-vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}'`
+vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}' | sed -e 's/^  *//'`
 pushd "$vol"
 cp -a *.app /Applications
 popd
@@ -26,8 +26,8 @@ rm -f "$dmg"
 
 export dmg="Firefox 67.0b19.dmg"
 curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
-vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}'`
-pushd "$vol";
+vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}' | sed -e 's/^  *//'`
+pushd "$vol"
 cp -a *.app /Applications
 popd
 hdiutil detach "$vol"
@@ -46,7 +46,7 @@ rm -f "$dmg"
 
 export dmg="googlechrome.dmg"
 curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
-vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}'`
+vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}' | sed -e 's/^  *//'`
 pushd "$vol"
 cp -a *.app /Applications
 popd
