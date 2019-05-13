@@ -1,0 +1,60 @@
+#!/bin/sh
+set -eu
+
+mkdir -p ~/tmp/movein
+pushd ~/tmp/movein
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap cloudfoundry/tap
+brew tap starkandwayne/cf
+brew tap jhunt/hacks
+brew install \
+  bosh-cli cf credhub-cli \
+  safe vault spruce genesis shield gotcha osb boss s3 \
+  kubectl helm \
+  go git tcpdump tmux tmate docker mtr sipcalc socat tree watch
+
+dmg="Firefox 66.0.5.dmg"
+curl -sLo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
+vol=`hdiutil attach $dmg | grep Volumes | awk '{print $3}'`
+sudo cp -rf $vol/*.app /Applications
+hdiutil detach $vol
+rm -f "$dmg"
+
+dmg="Firefox 67.0b19.dmg"
+curl -sLo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
+vol=`hdiutil attach $dmg | grep Volumes | awk '{print $3}'`
+sudo cp -rf $vol/*.app /Applications
+hdiutil detach $vol
+rm -f "$dmg"
+
+zip="VSCode-darwin-stable.zip"
+curl -sLo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$zip"
+unzip $zip;
+sudo mv *.app /Applications
+rm -f "$zip"
+
+dmg="VirtualBox-6.0.6-130049-OSX.dmg"
+curl -sLo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
+# FIXME
+rm -f "$dmg"
+
+dmg="googlechrome.dmg"
+curl -sLo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
+vol=`hdiutil attach $dmg | grep Volumes | awk '{print $3}'`
+sudo cp -rf $vol/*.app /Applications
+hdiutil detach $vol
+rm -f "$dmg"
+
+zip="iTerm2-3_2_9.zip"
+curl -sLo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$zip"
+unzip $zip;
+sudo mv *.app /Applications
+rm -f "$zip"
+
+dmg="vagrant_2.2.4_x86_64.dmg"
+curl -sLo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
+# FIXME
+rm -f "$dmg"
+
+popd ~/tmp/movein
