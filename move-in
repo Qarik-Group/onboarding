@@ -16,21 +16,21 @@ brew install \
 
 dmg="Firefox 66.0.5.dmg"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
-vol=`hdiutil attach $dmg | grep Volumes | awk '{print $3}'`
-sudo cp -rf $vol/*.app /Applications
-hdiutil detach $vol
+vol=`hdiutil attach "$dmg" | grep Volumes | awk '{print $3}'`
+sudo cp -rf "$vol"/*.app /Applications
+hdiutil detach "$vol"
 rm -f "$dmg"
 
 dmg="Firefox 67.0b19.dmg"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
-vol=`hdiutil attach $dmg | grep Volumes | awk '{print $3}'`
-sudo cp -rf $vol/*.app /Applications
-hdiutil detach $vol
+vol=`hdiutil attach "$dmg" | grep Volumes | awk '{print $3}'`
+sudo cp -rf "$vol"/*.app /Applications
+hdiutil detach "$vol"
 rm -f "$dmg"
 
 zip="VSCode-darwin-stable.zip"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$zip"
-unzip $zip;
+unzip "$zip";
 sudo mv *.app /Applications
 rm -f "$zip"
 
@@ -41,14 +41,14 @@ rm -f "$dmg"
 
 dmg="googlechrome.dmg"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
-vol=`hdiutil attach $dmg | grep Volumes | awk '{print $3}'`
-sudo cp -rf $vol/*.app /Applications
-hdiutil detach $vol
+vol=`hdiutil attach "$dmg" | grep Volumes | awk '{print $3}'`
+sudo cp -rf "$vol"/*.app /Applications
+hdiutil detach "$vol"
 rm -f "$dmg"
 
 zip="iTerm2-3_2_9.zip"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$zip"
-unzip $zip;
+unzip "$zip";
 sudo mv *.app /Applications
 rm -f "$zip"
 
