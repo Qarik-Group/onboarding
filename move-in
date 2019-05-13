@@ -10,7 +10,7 @@ brew tap starkandwayne/cf
 brew tap jhunt/hacks
 brew install \
   bosh-cli cf credhub-cli \
-  safe vault spruce genesis shield gotcha osb boss s3 \
+  safe vault spruce genesis shield gotcha osb s3 \
   kubectl helm \
   go git tcpdump tmux tmate docker mtr sipcalc socat tree watch
 
