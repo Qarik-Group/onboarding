@@ -18,21 +18,21 @@ brew install \
 export dmg="Firefox 66.0.5.dmg"
 curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
 vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}'`
-sudo cp -rf "$vol"/*.app /Applications
+cp -a "$vol"/*.app /Applications
 hdiutil detach "$vol"
 rm -f "$dmg"
 
 export dmg="Firefox 67.0b19.dmg"
 curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
 vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}'`
-sudo cp -rf "$vol"/*.app /Applications
+cp -a "$vol"/*.app /Applications
 hdiutil detach "$vol"
 rm -f "$dmg"
 
 zip="VSCode-darwin-stable.zip"
 curl -sLo "$zip" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$zip" | sed -e 's/ /%20/g'`
 unzip "$zip";
-sudo mv *.app /Applications
+mv *.app /Applications
 rm -f "$zip"
 
 export dmg="VirtualBox-6.0.6-130049-OSX.dmg"
@@ -43,14 +43,14 @@ rm -f "$dmg"
 export dmg="googlechrome.dmg"
 curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
 vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}'`
-sudo cp -rf "$vol"/*.app /Applications
+cp -a "$vol"/*.app /Applications
 hdiutil detach "$vol"
 rm -f "$dmg"
 
 zip="iTerm2-3_2_9.zip"
 curl -sLo "$zip" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$zip" | sed -e 's/ /%20/g'`
 unzip "$zip";
-sudo mv *.app /Applications
+mv *.app /Applications
 rm -f "$zip"
 
 export dmg="vagrant_2.2.4_x86_64.dmg"
