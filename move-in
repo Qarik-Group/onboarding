@@ -11,7 +11,7 @@ brew tap jhunt/hacks
 brew install \
   bosh-cli cf credhub-cli \
   safe vault spruce genesis shield gotcha osb s3 \
-  kubectl helm \
+  kubectl kubernetes-helm \
   go git tcpdump tmux tmate docker mtr sipcalc socat tree watch
 
 dmg="Firefox 66.0.5.dmg"
