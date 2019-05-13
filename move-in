@@ -14,14 +14,14 @@ brew install \
   kubectl kubernetes-helm \
   go git tcpdump tmux tmate docker mtr sipcalc socat tree watch
 
-dmg="Firefox 66.0.5.dmg"
+export dmg="Firefox 66.0.5.dmg"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
 vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}'`
 sudo cp -rf "$vol"/*.app /Applications
 hdiutil detach "$vol"
 rm -f "$dmg"
 
-dmg="Firefox 67.0b19.dmg"
+export dmg="Firefox 67.0b19.dmg"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
 vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}'`
 sudo cp -rf "$vol"/*.app /Applications
@@ -34,12 +34,12 @@ unzip "$zip";
 sudo mv *.app /Applications
 rm -f "$zip"
 
-dmg="VirtualBox-6.0.6-130049-OSX.dmg"
+export dmg="VirtualBox-6.0.6-130049-OSX.dmg"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
 # FIXME
 rm -f "$dmg"
 
-dmg="googlechrome.dmg"
+export dmg="googlechrome.dmg"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
 vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}'`
 sudo cp -rf "$vol"/*.app /Applications
@@ -52,7 +52,7 @@ unzip "$zip";
 sudo mv *.app /Applications
 rm -f "$zip"
 
-dmg="vagrant_2.2.4_x86_64.dmg"
+export dmg="vagrant_2.2.4_x86_64.dmg"
 curl -sLo "$dmg" "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg"
 # FIXME
 rm -f "$dmg"
