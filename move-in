@@ -1,6 +1,7 @@
 #!/bin/sh
 set -eu
 
+rm -rf ~/tmp/movein
 mkdir -p ~/tmp/movein
 pushd ~/tmp/movein
 
@@ -58,3 +59,4 @@ curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packag
 rm -f "$dmg"
 
 popd ~/tmp/movein
+rm -rf ~/tmp/movein
