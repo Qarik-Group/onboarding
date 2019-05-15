@@ -14,55 +14,9 @@ brew install \
   safe vault spruce genesis shield gotcha osb s3 \
   kubectl kubernetes-helm \
   go git tcpdump tmux tmate docker mtr sipcalc socat tree watch
-
-export dmg="Firefox 66.0.5.dmg"
-curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
-vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}' | sed -e 's/^  *//'`
-pushd "$vol"
-cp -a *.app /Applications
-popd
-hdiutil detach "$vol"
-rm -f "$dmg"
-
-export dmg="Firefox 67.0b19.dmg"
-curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
-vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}' | sed -e 's/^  *//'`
-pushd "$vol"
-cp -a *.app /Applications
-popd
-hdiutil detach "$vol"
-rm -f "$dmg"
-
-zip="VSCode-darwin-stable.zip"
-curl -sLo "$zip" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$zip" | sed -e 's/ /%20/g'`
-unzip "$zip";
-mv *.app /Applications
-rm -f "$zip"
-
-export dmg="VirtualBox-6.0.6-130049-OSX.dmg"
-curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
-# FIXME
-rm -f "$dmg"
-
-export dmg="googlechrome.dmg"
-curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
-vol=`hdiutil attach "$dmg" | awk '/Volumes/ {$1=""; $2=""; print $0}' | sed -e 's/^  *//'`
-pushd "$vol"
-cp -a *.app /Applications
-popd
-hdiutil detach "$vol"
-rm -f "$dmg"
-
-zip="iTerm2-3_2_9.zip"
-curl -sLo "$zip" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$zip" | sed -e 's/ /%20/g'`
-unzip "$zip";
-mv *.app /Applications
-rm -f "$zip"
-
-export dmg="vagrant_2.2.4_x86_64.dmg"
-curl -sLo "$dmg" `echo "https://starkandwayne-onboarding.s3.amazonaws.com/packages/$dmg" | sed -e 's/ /%20/g'`
-# FIXME
-rm -f "$dmg"
+brew cask install virtualbox vagrant vagrant-manager \
+  firefox homebrew/cask-versions/firefox-developer-edition \
+  visual-studio-code iterm2 google-chrome
 
 popd ~/tmp/movein
 rm -rf ~/tmp/movein
