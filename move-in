@@ -16,7 +16,7 @@ brew install \
   go git tcpdump tmux tmate docker mtr sipcalc socat tree watch
 brew cask install virtualbox vagrant vagrant-manager \
   firefox homebrew/cask-versions/firefox-developer-edition \
-  visual-studio-code iterm2 slack tunnelblick google-chrome
+  visual-studio-code iterm2 slack tunnelblick google-chrome zoomus
 
 popd ~/tmp/movein
 rm -rf ~/tmp/movein
