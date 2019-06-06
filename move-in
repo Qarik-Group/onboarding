@@ -10,7 +10,7 @@ brew tap cloudfoundry/tap
 brew tap starkandwayne/cf
 brew tap jhunt/hacks
 brew install \
-  bosh-cli cf credhub-cli \
+  bosh-cli cf-cli credhub-cli \
   safe vault spruce genesis shield gotcha osb s3 \
   kubectl kubernetes-helm \
   go git tcpdump tmux tmate docker mtr sipcalc socat tree watch
