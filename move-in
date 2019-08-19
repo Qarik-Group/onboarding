@@ -11,7 +11,7 @@ brew tap starkandwayne/cf
 brew tap jhunt/hacks
 brew install \
   bosh-cli cf-cli credhub-cli \
-  safe vault spruce genesis shield gotcha osb s3 \
+  safe vault spruce genesis shield gotcha osb s3 jq \
   kubectl kubernetes-helm \
   go git tcpdump tmux tmate docker mtr sipcalc socat tree watch
 brew cask install virtualbox vagrant vagrant-manager \
